@@ -12,18 +12,25 @@ const createEntry = (e) => {
     entry['checkIn'] = dateAndTimeToDate(formData.get('checkInDate'), formData.get('checkInTime'));
     entry['checkOut'] = dateAndTimeToDate(formData.get('checkOutDate'), formData.get('checkOutTime'));
 
-    fetch(`${URL}/entries`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(entry)
-    }).then((result) => {
-        result.json().then((entry) => {
-            entries.push(entry);
-            renderEntries();
+    if(entry['checkIn'] < entry['checkOut']){
+        fetch(`${URL}/entries`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(entry)
+        }).then((result) => {
+            result.json().then((entry) => {
+                entries.push(entry);
+                renderEntries();
+            });
         });
-    });
+    } else{
+        alert("Error: end is less than start")
+
+    }
+
+
 };
 
 const indexEntries = () => {
@@ -43,6 +50,8 @@ const createCell = (text) => {
     cell.innerText = text;
     return cell;
 };
+
+
 
 const renderEntries = () => {
     const display = document.querySelector('#entryDisplay');
