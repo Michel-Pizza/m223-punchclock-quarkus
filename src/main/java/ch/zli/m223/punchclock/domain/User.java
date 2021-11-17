@@ -36,7 +36,7 @@ public class User {
     private Boolean present;
 
     @ManyToOne
-    @JoinColumn(name ="user_id", nullable = false)
+    @JoinColumn(name ="privilege_id", nullable = false)
     private Privilege privilege;
 
 
