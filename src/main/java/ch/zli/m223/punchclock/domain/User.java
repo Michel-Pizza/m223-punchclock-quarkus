@@ -1,7 +1,14 @@
 package ch.zli.m223.punchclock.domain;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
 public class User {
 
@@ -15,29 +22,24 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
+    private String firstname;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(nullable = false)
+    private String lastname;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(nullable = false)
+    private LocalDate birthday;
 
-    public String getUsername() {
-        return username;
-    }
+    @Column(nullable = false)
+    private Boolean present;
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    @ManyToOne
+    @JoinColumn(name ="user_id", nullable = false)
+    private Privilege privilege;
 
 
-    public String getPassword() {
-        return password;
-    }
+    @OneToMany (mappedBy = "user", orphanRemoval = true)
+    private List<Entry> entries;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

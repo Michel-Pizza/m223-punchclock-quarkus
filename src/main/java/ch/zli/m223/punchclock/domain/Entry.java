@@ -1,8 +1,13 @@
 package ch.zli.m223.punchclock.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 @Entity
 public class Entry {
 
@@ -16,39 +21,18 @@ public class Entry {
     @Column(nullable = false)
     private LocalDateTime checkOut;
 
+    @Column(nullable = false)
+    private String description;
+
     @ManyToOne
-    @JoinColumn(name ="category_id", nullable = false)
-    private Category category;
+    @JoinColumn (name = "workplace_id", nullable = false)
+    private Workplace workplace;
 
-    public Category getCategory() {
-        return category;
-    }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+    @ManyToOne
+    @JoinColumn (name = "user_id", nullable = false)
+    private User user;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public LocalDateTime getCheckIn() {
-        return checkIn;
-    }
-
-    public void setCheckIn(LocalDateTime checkIn) {
-        this.checkIn = checkIn;
-    }
-
-    public LocalDateTime getCheckOut() {
-        return checkOut;
-    }
-
-    public void setCheckOut(LocalDateTime checkOut) {
-        this.checkOut = checkOut;
-    }
 }
