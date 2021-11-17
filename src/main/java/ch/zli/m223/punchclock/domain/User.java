@@ -1,5 +1,6 @@
 package ch.zli.m223.punchclock.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,7 +40,8 @@ public class User {
     private Privilege privilege;
 
 
-    @OneToMany (mappedBy = "user", orphanRemoval = true)
+    @OneToMany (mappedBy = "user", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Entry> entries;
 
 }
