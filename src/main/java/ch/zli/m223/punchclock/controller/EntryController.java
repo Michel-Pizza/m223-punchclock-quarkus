@@ -1,5 +1,9 @@
 package ch.zli.m223.punchclock.controller;
 
+
+import ch.zli.m223.punchclock.domain.Entry;
+import ch.zli.m223.punchclock.service.EntryService;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,8 +13,8 @@ import javax.ws.rs.core.MediaType;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
-import ch.zli.m223.punchclock.domain.Entry;
-import ch.zli.m223.punchclock.service.EntryService;
+
+
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path("/entries")
