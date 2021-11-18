@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 import ch.zli.m223.punchclock.domain.Entry;
 
 @ApplicationScoped
-@RolesAllowed("User")
+
 public class EntryService {
 
     @Inject

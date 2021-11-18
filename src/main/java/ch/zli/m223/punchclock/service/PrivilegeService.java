@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @ApplicationScoped
-@RolesAllowed("Admin")
+
 public class PrivilegeService {
 
     @Inject

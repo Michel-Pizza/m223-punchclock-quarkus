@@ -6,6 +6,7 @@ import ch.zli.m223.punchclock.service.EntryService;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -19,6 +20,7 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path("/entries")
 @Tag(name = "Entries", description = "Handling of entries")
+@RolesAllowed({"user", "vorgesetzter", "admin"})
 public class EntryController {
 
     @Inject
@@ -27,6 +29,7 @@ public class EntryController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "List all Entries")
+    @Path("")
     public List<Entry> list() {
         return entryService.findAll();
     }

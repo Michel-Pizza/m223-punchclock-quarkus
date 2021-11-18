@@ -11,7 +11,6 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @ApplicationScoped
-@RolesAllowed("Admin")
 public class WorkplaceService {
 
     @Inject

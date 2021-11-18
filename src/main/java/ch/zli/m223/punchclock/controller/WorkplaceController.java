@@ -2,6 +2,7 @@ package ch.zli.m223.punchclock.controller;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -16,6 +17,7 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path ("/workplaces")
 @Tag (name = "workplaces", description = "Handling of workplaces")
+@RolesAllowed ({"admin"})
 public class WorkplaceController {
 
     @Inject
