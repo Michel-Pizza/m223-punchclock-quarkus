@@ -19,3 +19,11 @@ Datenquelle: jdbc:h2:mem:punchclock
 Benutzername: zli
 Passwort: zli
 
+Es existiert ein import.sql file welches rechte, arbeitsplätze, user und, entries generiert.
+
+Logindaten für die seite:
+
+(username, password) -> die vorlage für die unteren logins
+(user, user) -> kann einträge erstellen und "aktuelle" bearbeiten
+(vorgesetzter, vorgesetzter) -> fehlt implementierung (funktioniert teilweise)
+(admin, admin) -> fehlt implementierung (funktioniert nicht)

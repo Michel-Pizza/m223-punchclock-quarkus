@@ -17,7 +17,6 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path ("/workplaces")
 @Tag (name = "workplaces", description = "Handling of workplaces")
-
 public class WorkplaceController {
 
     @Inject

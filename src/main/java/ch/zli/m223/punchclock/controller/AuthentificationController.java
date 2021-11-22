@@ -5,6 +5,7 @@ import ch.zli.m223.punchclock.service.AuthenticationService;
 import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
+import org.eclipse.microprofile.openapi.annotations.Operation;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -28,6 +29,7 @@ public class AuthentificationController {
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    @Operation (summary = "Login", description = "checks the data, from the user, validates it and sends a jwt token back")
     public String login(User user){
 
         Date d = new Date();
