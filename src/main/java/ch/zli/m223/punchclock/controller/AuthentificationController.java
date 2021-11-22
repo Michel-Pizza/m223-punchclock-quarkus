@@ -27,14 +27,13 @@ public class AuthentificationController {
     @POST
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces (MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public String login(User user){
-
 
         Date d = new Date();
         d.setTime(System.currentTimeMillis() +10000000);
         if(authenticationService.checkIfUserExists(user)){
-            return "{\"token\":\""+authenticationService.generateValidJwtToken(user)+"\"}";
+            return authenticationService.generateValidJwtToken(user);
         }else {
             throw new NotAuthorizedException("User " + user.getUsername() + " was not found");
         }

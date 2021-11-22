@@ -31,12 +31,13 @@ public class AuthenticationService {
 
         String token =
             Jwt.issuer("https://zli.ch/issuer")
-            .upn(user.getUsername())
+            .upn(authUser.getUsername())
             .groups(authUser.getPrivilege().getName())// hier dass hier einsetzen user.getPrivilege().getName();
             .claim(Claims.birthdate.name(), "2001-07-13")
             .expiresIn(Duration.ofHours(1)) 
             .sign();
-        return token;
+
+        return "{\"token\":\""+token+"\", \"role\":\""+authUser.getPrivilege().getName()+"\"}";
     }
 
     public boolean checkIfUserExists(User user) {

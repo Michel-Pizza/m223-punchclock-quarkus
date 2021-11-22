@@ -24,6 +24,9 @@ public class Entry {
     @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
+    private Boolean isLogin;
+
     @ManyToOne
     @JoinColumn (name = "workplace_id", nullable = false)
     private Workplace workplace;

@@ -9,7 +9,9 @@ import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.SecurityContext;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
@@ -44,11 +46,20 @@ public class EntryController {
     }
 
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "list all entries from user")
+    @Path("/user")
+    public List<Entry> listFromUser(@Context SecurityContext ctx) {
+        return entryService.findAllFromUser(ctx.getUserPrincipal().getName());
+    }
+
+    @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(summary = "Add a new Entry", description = "The newly created entry is returned. The id may not be passed.")
     public Entry add(Entry entry) {
-       return entryService.createEntry(entry);
+        return entryService.createEntry(entry, "Michel");
     }
 
 

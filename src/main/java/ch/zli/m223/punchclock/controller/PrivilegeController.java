@@ -17,11 +17,11 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path ("/privileges")
 @Tag (name = "privileges", description = "Handling of privileges")
-@RolesAllowed ({"vorgesetzter", "admin"})
 public class PrivilegeController {
 
     @Inject
     PrivilegeService privilegeService;
+
 
     @GET
     @Produces (MediaType.APPLICATION_JSON)

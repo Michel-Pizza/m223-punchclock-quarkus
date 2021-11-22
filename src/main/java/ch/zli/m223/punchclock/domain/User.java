@@ -32,8 +32,6 @@ public class User {
     @Column(nullable = false)
     private LocalDate birthday;
 
-    @Column(nullable = false)
-    private Boolean present;
 
     @ManyToOne
     @JoinColumn(name ="privilege_id", nullable = false)

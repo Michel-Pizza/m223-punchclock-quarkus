@@ -36,6 +36,16 @@ public class UserService {
         return entityManager.find(User.class, id);
     }
 
+    @Transactional
+    public User getSingleUserUsername(String name) {
+        var query = entityManager.createQuery("SELECT u.id from User u where u.username = :name");
+
+        query.setParameter("name", name);
+        var result = query.getSingleResult();
+
+        return entityManager.find(User.class, result);
+    }
+
 
     //braucht einen check, ob der User gebraucht wird.
     @Transactional

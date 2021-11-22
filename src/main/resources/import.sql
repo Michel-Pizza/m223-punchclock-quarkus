@@ -13,7 +13,7 @@ INSERT INTO
 
 
 
-INSERT INTO User(username, password, firstname, lastname, birthday, present, privilege_id)
-VALUES ('Michel', 'Schrem', 'Michel', 'Schrem', '2004-03-04', false, 1),
-('Michel2', 'Schrem2', 'Michel2', 'Schrem2', '2005-03-04', false, 2),
-('Michel3', 'Schrem3', 'Michel3', 'Schrem3', '2006-03-04', false, 3);
+INSERT INTO User(username, password, firstname, lastname, birthday,  privilege_id)
+VALUES ('Michel', 'Schrem', 'Michel', 'Schrem', '2004-03-04',  1),
+('Michel2', 'Schrem2', 'Michel2', 'Schrem2', '2005-03-04',  2),
+('Michel3', 'Schrem3', 'Michel3', 'Schrem3', '2006-03-04',  3);
