@@ -19,6 +19,11 @@ Datenquelle: jdbc:h2:mem:punchclock
 Benutzername: zli
 Passwort: zli
 
+Es gibt noch ein React order.
+dort drinnen muss man in der console: "npm install" eingeben
+dannach muss mann "npm start"
+
+
 Es existiert ein import.sql file welches rechte, arbeitsplätze, user und, entries generiert.
 
 Logindaten für die seite:
